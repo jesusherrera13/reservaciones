@@ -525,12 +525,42 @@
 
 <script>
   $('.js-example-basic-single').select2();
-  $('input[name="dates"]').daterangepicker();
+  // $('input[name="dates"]').daterangepicker();
 
 
   $(document).ready(function() {
     $('input[name="dates"]').daterangepicker({
-      opens: 'left'
+      opens: 'left',
+      locale: {
+        "applyLabel": "Aplicar",
+        "cancelLabel": "Cancelar",
+        format: 'DD/MM/YYYY',
+        "fromLabel": "De",
+        "toLabel": "A",
+        "daysOfWeek": [
+          "Do",
+          "Lu",
+          "Ma",
+          "Mi",
+          "Ju",
+          "Vi",
+          "Sa"
+        ],
+          "monthNames": [
+          "Enero",
+          "Febrero",
+          "Marzo",
+          "Abril",
+          "Mayo",
+          "Junio",
+          "Julio",
+          "Agosto",
+          "Septiembre",
+          "Octubre",
+          "Noviembre",
+          "Diciembre"
+        ],
+      }
     }, function(start, end, label) {
       console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
     });
