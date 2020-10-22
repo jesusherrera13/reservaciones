@@ -22,6 +22,7 @@
     <link rel="mask-icon" href="img/favicons/safari-pinned-tab.svg" color="#563d7c">
     <link rel="icon" href="img/favicons/favicon.ico">
     <link rel="stylesheet" type="text/css" href="dist/css/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="daterangepicker/daterangepicker.css">
     <meta name="msapplication-config" content="img/favicons/browserconfig.xml">
     <meta name="theme-color" content="#563d7c">
 
@@ -352,10 +353,7 @@
         </select>
       </div>
       <div class="col-sm-4">
-        <select class="custom-select custom-select-sm">>
-          <option>Destino</option>
-          <option>Mazatlán</option>
-        </select>
+        <input type="text" name="dates" class="form-control form-control-sm pull-right">
       </div>
     </div>
   </div>
@@ -519,10 +517,23 @@
 </footer>
 <script src="js/jquery-3.5.1.js"></script>
 <script src="dist/js/select2.min.js"></script>
+<script src="daterangepicker/moment.min.js"></script>
+<script src="daterangepicker/daterangepicker.min.js"></script>
       <script>window.jQuery || document.write('<script src="/docs/4.5/assets/js/vendor/jquery.slim.min.js"><\/script>')</script>
       <script src="js/bootstrap.bundle.min.js" ></script></body>
 </html>
 
 <script>
   $('.js-example-basic-single').select2();
+  $('input[name="dates"]').daterangepicker();
+
+
+  $(document).ready(function() {
+    $('input[name="dates"]').daterangepicker({
+      opens: 'left'
+    }, function(start, end, label) {
+      console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+    });
+  });
+
 </script>
