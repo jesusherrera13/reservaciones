@@ -8,7 +8,8 @@ class ReservacionController extends Controller
 {
 	public function index(Request $request) {
 
-		// dd($request);
-		return view('inicio.inicio');
+		$destinos = app(DestinoController::class)->getData($request);
+
+		return view('inicio.inicio',compact('destinos'));
 	}
 }
